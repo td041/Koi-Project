@@ -1,0 +1,221 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koi Shop</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="inner-wrap">
+                <!-- Menu Mobile -->
+                <button class="inner-menu-mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/assets/img/logo.svg" alt="Logo">
+                    </a>
+                </div>
+                <!-- Menu -->
+                <nav class="menu">
+                    <ul>
+                        <li><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
+                        <li><a href="#!">Danh Mục</a></li>
+                        <li><a href="#!">Giới Thiệu</a></li>
+                        <li><a href="#!">Liên Hệ</a></li>
+                    </ul>
+                </nav>
+                <!-- Form -->
+                <!-- Search -->
+                <button class="inner-search-mobile">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <form class="form" action="#!">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" name="" placeholder="Nhập từ khóa...">
+                </form>
+                <!-- Button -->
+                <a href="#!" class="inner-button button">Tham Gia Cộng Đồng</a>
+            </div>
+        </div>
+    </header>
+    <!-- Main -->
+    <main class="main">
+        <!-- Section-1 -->
+        <section class="section-1">
+            <div class="container">
+                <div class="inner-wrap">
+                    <img src="~/assets/img/Rectangle 9.svg" alt="" class="inner-bg-4">
+                    <div class="inner-content">
+                        <img src="~/assets/img/Rectangle 3.svg" alt="" class="inner-bg-1">
+                        <div class="inner-title">
+                            <div class="main-title">Thêm Một Bạn</div>
+                            <div class="sub-title">Thêm Ngàn Niềm Vui!</div>
+                        </div>
+                        <div class="desc">Có một hồ cá Koi đồng nghĩa với việc bạn mang đến niềm vui và sự bình yên cho không gian sống. Chúng tôi cung cấp hơn 200 giống cá Koi khác nhau, đáp ứng mọi nhu cầu và sở thích của bạn!</div>
+                        <div class="inner-button">
+                            <a href="#!" class="button-outline">Giới Thiệu <i class="fa-regular fa-circle-play"></i></a>
+                            <a href="#!" class="button">Khám Phá Ngay</a>
+                        </div>
+                    </div>
+                    <img src="~/assets/img/Rectangle 8.svg" alt="" class="inner-bg-2">
+                    <div class="inner-image">
+                        <img src="~/assets/img/Group 2.svg" alt="" class="inner-bg-3">
+                        <img src="~/assets/img/main-image.png" alt="" class="inner-image-main">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section-2 -->
+        <section class="section-2">
+            <div class="container">
+                <div class="box">
+                    <div class="inner-left">
+                        <p class="inner-desc">Có gì mới?</p>
+                        <h2 class="inner-title">Một số vật nuôi của chúng tôi</h2>
+                    </div>
+                    <div class="inner-right">
+                        <a href="" class="button-outline">Xem thêm</a>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <!-- Danh sách sản phẩm -->
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="product-item">
+                            <a href="@Url.Action("Details", "Products", new { id = product.Id })">
+                                <div class="inner-image">
+                                    <img src="~/assets/img/@product.Image" alt="" class="product-image">
+                                </div>
+                                <div class="inner-content">
+                                    <h2 class="product-info">@product.Name</h2>
+                                    <div class="inner-info">
+                                        <div class="inner-info-item">
+                                            Giống: <b>@product.Gender</b>
+                                        </div>
+                                        <div class="inner-info-item">
+                                            Tuổi: <b>@product.Age</b>
+                                        </div>
+                                    </div>
+                                    <div class="inner-price">
+                                        @product.Price VND
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="inner-button-bottom">
+                    <a href="#" class="button-outline">Xem thêm <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- Section-3 -->
+        <section class="section-3">
+            <div class="container">
+                <div class="inner-wrap">
+                    <div class="inner-image">
+                        <img src="~/assets/img/image-2.png" alt="">
+                    </div>
+                    <div class="inner-content">
+                        <div class="inner-title">
+                            <div class="main-title">Thêm Một Bạn</div>
+                            <div class="sub-title">Thêm Ngàn Niềm Vui!</div>
+                        </div>
+                        <div class="desc">Có một hồ cá Koi đồng nghĩa với việc bạn mang đến niềm vui và sự bình yên cho không gian sống. Chúng tôi cung cấp hơn 200 giống cá Koi khác nhau, đáp ứng mọi nhu cầu và sở thích của bạn!</div>
+                        <div class="inner-button">
+                            <a href="#!" class="button-outline">Giới Thiệu <i class="fa-regular fa-circle-play"></i></a>
+                            <a href="#!" class="button">Khám Phá Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section-4 -->
+        <section class="section-4">
+            <div class="container">
+                <div class="box">
+                    <div class="inner-left">
+                        <p class="inner-desc">Có thể bạn đã biết?</p>
+                        <h2 class="inner-title">Kiến thức thú cưng hữu ích</h2>
+                    </div>
+                    <div class="inner-right">
+                        <a href="" class="button-outline">Xem thêm <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <!-- Danh sách blog -->
+                    @foreach (var blog in Model.Blogs)
+                    {
+                        <div class="blog-item">
+                            <a href="@Url.Action("Details", "Blog", new { id = blog.Id })">
+                                <div class="inner-image">
+                                    <img src="~/assets/img/@blog.Image" alt="">
+                                </div>
+                                <div class="inner-content">
+                                    <div class="blog-tag">Kiến thức thú cưng</div>
+                                    <h2 class="blog-title">@blog.Title</h2>
+                                    <p class="blog-desc">@blog.Description</p>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="inner-button-bottom">
+                    <a href="#" class="button-outline">Xem thêm <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-top">
+                    <div class="inner-heading">
+                        Đăng ký ngay để không bỏ lỡ các chương trình của chúng tôi
+                    </div>
+                    <form action="#" class="inner-form" method="post">
+                        <input type="email" placeholder="Nhập email của bạn..." name="email" required>
+                        <button class="inner-button">Đăng Kí Ngay</button>
+                    </form>
+                </div>
+                <div class="inner-middle">
+                    <nav class="footer-links">
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
+                            <li><a href="#!">Danh Mục</a></li>
+                            <li><a href="#!">Giới Thiệu</a></li>
+                            <li><a href="#!">Liên Hệ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="inner-bottom">
+                    <div class="inner-copyright">
+                        © Bản quyền thuộc về Công ty TNHH Koi - All Rights Reserved.
+                    </div>
+                    <div class="inner-social">
+                        <a href="#!"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#!"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#!"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/assets/js/main.js"></script>
+</body>
+</html>
+
