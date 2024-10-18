@@ -1,7 +1,6 @@
-using KoiProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
+using KoiProject.Models;
 namespace KoiProject.Controllers
 {
     public class HomeController : Controller

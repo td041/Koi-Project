@@ -1,0 +1,16 @@
+﻿@using KoiProject
+@using KoiProject.Models
+@model KoiProject.Models.ErrorViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Error</h1>
+<p>Request ID: @Model.RequestId</p>
+
+@if (Model.ShowRequestId)
+{
+    <p>The request ID is: @Model.RequestId</p>
+}
+else
+{
+    <p>No request ID available.</p>
+}
